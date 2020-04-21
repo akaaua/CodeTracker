@@ -21,18 +21,18 @@ class GitBot:
         sleep(1)
 
 
-    def select_project(self):
+    def _select_project(self):
         
         self.driver.find_element_by_xpath('/html/body/div[4]/div/aside[1]/div[2]/div[1]/div/ul/li[1]/div/a/span[1]').click()
 
 
-    def get_datetime(self):
+    def _get_datetime(self):
         
         dates = self.driver.find_elements_by_tag_name('time-ago')
         datetime_commit = [dates[i].get_attribute('datetime') for i in range(len(dates))]
         return datetime_commit
     
-    def datetime_converter(self):
+    def _datetime_converter(self):
 
         datetime_converted = datetime.strptime(datetime, '%d/%m/%y %H:%M:%S')
         print(datetime_converted)
