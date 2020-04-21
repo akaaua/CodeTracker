@@ -29,11 +29,14 @@ class GitBot:
     def get_datetime(self):
         
         dates = self.driver.find_elements_by_tag_name('time-ago')
-        datetime = [dates[i].get_attribute('datetime') for i in range(len(dates))]
-        return datetime
+        datetime_commit = [dates[i].get_attribute('datetime') for i in range(len(dates))]
+        return datetime_commit
     
-    def datetime_converter(datetime):
-        
+    def datetime_converter(self):
+
+        datetime_converted = datetime.strptime(datetime, '%d/%m/%y %H:%M:%S')
+        print(datetime_converted)
+        return datetime_converted
 
 
 
@@ -41,6 +44,7 @@ class GitBot:
 
 
 my_bot = GitBot(username, pw)
+
 my_bot.select_project()
 my_bot.get_datetime()
 
