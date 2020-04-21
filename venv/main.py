@@ -12,9 +12,9 @@ class GitBot:
         self.driver = webdriver.Chrome()
         self.driver.get("https://github.com/")
         self.driver.maximize_window()
-        sleep(1)
+        self.driver.implicitly_wait(1)
         self.driver.find_element_by_xpath('/html/body/div[1]/header/div/div[2]/div[2]/a[1]').click()
-        sleep(1)
+        self.driver.implicitly_wait(1)
         self.driver.find_element_by_xpath('//*[@id="login_field"]').send_keys(username)
         self.driver.find_element_by_xpath('//*[@id="password"]').send_keys(pw)
         self.driver.find_element_by_xpath('//*[@id="login"]/form/div[4]/input[9]').click()
@@ -45,6 +45,6 @@ class GitBot:
 
 my_bot = GitBot(username, pw)
 
-my_bot.select_project()
-my_bot.get_datetime()
+my_bot._select_project()
+my_bot._get_datetime()
 
