@@ -3,13 +3,16 @@ from time import sleep
 from secrets import pw
 from secrets import username
 from datetime import datetime
+import os
 
 class GitBot:
 
     def __init__(self, username, pw):
-        
+        #Tentativa de usar caminho relativo no webdriver para evitar futuros problemas.
+        #path = "util/chromedriver" 
+        #relpath = os.path.relpath("/home/akaua/Documentos/CodeProjects/CodeTracker/util/chromedriver")
         self.username = username
-        self.driver = webdriver.Chrome()
+        self.driver = webdriver.Chrome("/home/akaua/Documentos/CodeProjects/CodeTracker/util/chromedriver")
         self.driver.get("https://github.com/")
         self.driver.maximize_window()
         self.driver.implicitly_wait(1)
