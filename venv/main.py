@@ -7,10 +7,7 @@ import os
 
 class GitBot:
 
-    def __init__(self, username, pw):
-        #Tentativa de usar caminho relativo no webdriver para evitar futuros problemas.
-        #path = "util/chromedriver" 
-        #relpath = os.path.relpath("/home/akaua/Documentos/CodeProjects/CodeTracker/util/chromedriver")
+    def __init__(self, username, pw):        
         self.username = username
         self.driver = webdriver.Chrome(os.path.abspath(os.getcwd())+"/util/chromedriver")
         self.driver.get("https://github.com/")
