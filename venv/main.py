@@ -22,9 +22,11 @@ class GitBot:
 
 
     def _select_project(self):
-        
-        self.driver.find_element_by_xpath('/html/body/div[4]/div/aside[1]/div[2]/div[1]/div/ul/li[1]/div/a/span[1]').click()
-
+        #repo = ''
+        if repo == '':
+            print('Qual o nome do repositório?')
+            repo = input()
+        self.driver.find_element_by_xpath('//*[@title="' + repo + '"]').click()     
 
     def _get_datetime(self):
         
