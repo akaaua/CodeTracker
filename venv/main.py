@@ -15,14 +15,20 @@ class GitBot:
         self.driver.implicitly_wait(1)
         self.driver.find_element_by_xpath('/html/body/div[1]/header/div/div[2]/div[2]/a[1]').click()
         self.driver.implicitly_wait(1)
+        if username == '':
+            print('Qual o nome de usuário do GitHub?')
+            username = input()
         self.driver.find_element_by_xpath('//*[@id="login_field"]').send_keys(username)
+        if pw == '':
+            print('Qual a senha do GitHub?')
+            pw = input()
         self.driver.find_element_by_xpath('//*[@id="password"]').send_keys(pw)
         self.driver.find_element_by_xpath('//*[@id="login"]/form/div[4]/input[9]').click()
         sleep(1)
 
 
     def _select_project(self):
-        #repo = '' #for test purposes define here.
+        repo = '' #for test purposes define here.
         if repo == '':
             print('Qual o nome do repositório?')
             repo = input()
