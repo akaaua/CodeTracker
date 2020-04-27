@@ -22,7 +22,7 @@ class GitBot:
 
 
     def _select_project(self):
-        #repo = ''
+        #repo = '' #for test purposes define here.
         if repo == '':
             print('Qual o nome do repositório?')
             repo = input()
