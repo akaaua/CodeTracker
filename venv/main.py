@@ -12,7 +12,7 @@ class GitBot:
         #path = "util/chromedriver" 
         #relpath = os.path.relpath("/home/akaua/Documentos/CodeProjects/CodeTracker/util/chromedriver")
         self.username = username
-        self.driver = webdriver.Chrome("/home/akaua/Documentos/CodeProjects/CodeTracker/util/chromedriver")
+        self.driver = webdriver.Chrome(os.path.abspath(os.getcwd())+"/util/chromedriver")
         self.driver.get("https://github.com/")
         self.driver.maximize_window()
         self.driver.implicitly_wait(1)
