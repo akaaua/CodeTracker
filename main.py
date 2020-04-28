@@ -1,8 +1,7 @@
 from selenium import webdriver
 from time import sleep
-import secrets
-from secrets import pw
-from secrets import username
+from util.secrets import pw
+from util.secrets import username
 from datetime import datetime
 import os
 
