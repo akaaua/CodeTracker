@@ -1,5 +1,6 @@
 from selenium import webdriver
 from time import sleep
+import secrets
 from secrets import pw
 from secrets import username
 from datetime import datetime
@@ -16,10 +17,10 @@ class GitBot:
         self.driver.find_element_by_xpath('/html/body/div[1]/header/div/div[2]/div[2]/a[1]').click()
         self.driver.implicitly_wait(1)
         if username == '':
-            username = input(' Qual o nome de usuário do GitHub?')
+            username = input(' ' + ' Qual o nome de usuário do GitHub?')
         self.driver.find_element_by_xpath('//*[@id="login_field"]').send_keys(username)
         if pw == '':
-            pw = input(' Qual a senha do GitHub?')
+            pw = input(' ' + ' Qual a senha do GitHub?')
         self.driver.find_element_by_xpath('//*[@id="password"]').send_keys(pw)
         self.driver.find_element_by_xpath('//*[@id="login"]/form/div[4]/input[9]').click()
         sleep(1)
@@ -28,7 +29,7 @@ class GitBot:
     def _select_project(self):
         repo = '' #for test purposes define here.
         if repo == '':
-            repo = input(' Qual o nome do repositório?')
+            repo = input(' ' + ' Qual o nome do repositório?')
         self.driver.find_element_by_xpath('//*[@title="' + repo + '"]').click()     
 
     def _get_datetime(self):
