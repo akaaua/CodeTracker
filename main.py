@@ -1,8 +1,8 @@
 from selenium import webdriver
 from time import sleep
-from util.secrets import defineusername
-from util.secrets import definepassword
-from util.secrets import definerepository
+from util.definevariables import defineusername
+from util.definevariables import definepassword
+from util.definevariables import definerepository
 #from util.secrets import username
 from datetime import datetime
 import os
