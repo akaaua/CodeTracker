@@ -38,7 +38,6 @@ class GitBot:
 
         dates_list = [dt.datetime.strptime(date, '%Y-%m-%dT%H:%M:%SZ').date() for date in datetime_commit]
         date_formatted = [dt.datetime.strptime(str(i), '%Y-%m-%d').strftime('%d-%m-%Y') for i in dates_list]
-        print(dates_list[2].day)
         print(date_formatted)
         return date_formatted
 
