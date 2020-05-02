@@ -71,8 +71,3 @@ my_bot = GitBot()
 project = my_bot._select_project()
 datetime_commit = my_bot._get_datetime()
 my_bot._datetime_converter(datetime_commit)
-#dates_day = my_bot._datetime_converter().day
-#dates_month = my_bot._datetime_converter().month
-#dates_year = my_bot._datetime_converter().year
-#my_bot._insert_project(project, dates_day, dates_month, dates_year)
-
