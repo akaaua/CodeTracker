@@ -5,9 +5,8 @@ from util.definevariables import definepassword
 from util.definevariables import definerepository
 import datetime as dt
 import os
-from sqlite_functions import _create_database
-from sqlite_functions import _insert_project
-from sqlite_functions import _insert_date
+from sqlite_functions import _create_database, _insert_project, _insert_date, _get_projectid, _get_projects
+
 
 
 class GitBot:
@@ -31,10 +30,19 @@ class GitBot:
         
         project = definerepository()
         self.driver.find_element_by_xpath('//*[@title="' + project + '"]').click()
-        result = _insert_project(project)
+        
+        if _get_projects(project) == None:
+           result = _insert_project(project)
+           print(result)
+        elif _get_projects(project)[0] != project:
+           result = _insert_project(project)
+           print(result)
+        else:   
+            print('Projeto existente')
+        
         print(project)
         return project
-        print(result)
+        
 
 
     def _get_datetime(self):
@@ -49,7 +57,9 @@ class GitBot:
         dates_list = [dt.datetime.strptime(date, '%Y-%m-%dT%H:%M:%SZ').date() for date in datetime_commit]
         date_formatted = [dt.datetime.strptime(str(i), '%Y-%m-%d').strftime('%d-%m-%Y') for i in dates_list]
         datetime_type = [dt.datetime.strptime(date, '%d-%m-%Y').date() for date in date_formatted]
-        _insert_date(datetime_type[1].day, datetime_type[1].month, datetime_type[1].year)
+        projectdb = int(_get_projectid(project)[0])
+        for i in range(len(datetime_type)):
+            _insert_date(datetime_type[i].day, datetime_type[i].month, datetime_type[i].year, projectdb)
         print(date_formatted)
         print(datetime_type)
         return datetime_type
