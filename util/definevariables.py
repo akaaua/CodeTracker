@@ -3,9 +3,7 @@ def defineusername():
         username
     except:
         username = input('Qual o nome de usuário do GitHub? ')
-    #username = ''
-    #if username == :
-    #    username = input('Qual o nome de usuário do GitHub? ')
+    
       
     return username
 
